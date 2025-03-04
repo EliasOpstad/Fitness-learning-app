@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,12 +16,43 @@ class HomePage extends StatelessWidget {
           backgroundColor: Colors.white,
           elevation: 0.0,
           centerTitle: true,
-          leading: Container(
+          leading: GestureDetector(
+            onTap: appBar,
+            child: Container(
               margin: EdgeInsets.all(10),
+              alignment: Alignment.center,
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Color(0xFFF5F5F7),
                 borderRadius: BorderRadius.circular(10),
-              ))),
+              ),
+              child: SvgPicture.asset(
+                'assets/icons/Arrow - Left 2.svg',
+                height: 20,
+                width: 20,
+              ),
+            ),
+          ),
+          actions: [
+            GestureDetector(
+              onTap: appBar,
+              child: Container(
+                margin: EdgeInsets.all(10),
+                alignment: Alignment.center,
+                width: 30,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF5F5F7),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: SvgPicture.asset(
+                  'assets/icons/dots.svg',
+                  height: 5,
+                  width: 5,
+                ),
+              ),
+            ),
+          ]),
     );
   }
+
+  void appBar() {}
 }
